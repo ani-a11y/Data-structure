@@ -18,7 +18,7 @@
 // Print the sum of all even numbers up to n.
 
 #include <iostream>
-using namespace std;
+using namespace std; 
 int main(){
       int n , sum=0;
       cout<<"enter the number "<<endl;
