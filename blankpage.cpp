@@ -140,3 +140,4 @@ void insertAtHead(node* &head , int data){
   head = temp;
 } 
    dehfhhfhfuhk
+uygjygyg
