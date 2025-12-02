@@ -139,5 +139,4 @@ void insertAtHead(node* &head , int data){
   temp -> next = head;
   head = temp;
 } 
-   dehfhhfhfuhk
-uygjygyg
+ 
