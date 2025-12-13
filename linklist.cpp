@@ -18,7 +18,7 @@ class node{
         delete next;
         this -> next = NULL;
       }
-      cout<<"Memory is free from node "<< value <<endl;
+      cout<<"Memory is free for node with data "<< value <<endl;
         }
 };
 
@@ -149,6 +149,9 @@ print(head);
 
 
    deletenode(7 , head);
+   print(head);
+
+   deletenode(3 , head);
    print(head);
   //    cout<<"head  "<<head ->data<<endl;
   // cout<<"tail  "<<tail ->data<<endl;
