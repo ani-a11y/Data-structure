@@ -46,6 +46,14 @@ void insertathead(node* &head , int data){
     head = temp;
 }
 
+//INSERT AT TAIL
+void insertattail(node* &tail , int data){
+    node* temp = new node(data);
+     temp -> prev =  tail;
+    tail -> next = temp;
+  
+}
+
 int main(){
     node* node1 = new node(10);
     node* head = node1;
