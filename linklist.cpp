@@ -40,6 +40,7 @@ void InsertAttail(node* &tail , int data){
 node* temp = new node(data);
 tail -> next = temp;
 tail = tail -> next;
+tail=temp;
 } 
 
 
