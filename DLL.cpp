@@ -12,6 +12,17 @@ class node{
         this -> prev = NULL;
         this -> next = NULL;
     }
+    
+    ~node() {
+        int val=this -> data;
+        if(next != NULL){
+            delete next;
+            next = NULL;
+        }
+        cout<<"memory is free from the node with data "<<val<<endl;
+        
+    
+    }
 
 };  
 // traverse out doubly linked list
@@ -38,7 +49,7 @@ void print(node* head){
 }
 
 
-//INSERT AT HEAD
+                    //INSERT AT HEAD
 void insertathead(node* &head  , int data){
      if(head == NULL){
         node* temp = new node(data);
@@ -51,7 +62,7 @@ void insertathead(node* &head  , int data){
     head = temp;
 }
 
-//INSERT AT TAIL
+                   //INSERT AT TAIL
 void insertattail(node* &tail , int data){
     if(tail == NULL){
         node* temp = new node(data);
@@ -64,7 +75,7 @@ void insertattail(node* &tail , int data){
     tail=temp;
 }
 
-//INSERT AT POSITION
+                       //INSERT AT POSITION
 
 void insertatposition(node* &head , node* &tail ,int position ,  int data){
     // maan lo hume first postion hi mil jaye insert karne ko
@@ -79,7 +90,7 @@ void insertatposition(node* &head , node* &tail ,int position ,  int data){
         temp= temp->next;
         cnt++;
 }
-//inserting at last postion
+                  //inserting at last postion
 if(temp->next==NULL){
     insertattail(tail , data);
     return;
@@ -90,6 +101,33 @@ nodetoinsert->next=temp->next;
 temp->next->prev=nodetoinsert;
 temp->next = nodetoinsert;
 nodetoinsert->prev=temp;
+}
+
+                // Deletion in DLL
+
+void Deletenode(int position , node* &head){
+    if(position==1){
+        node*temp = head;
+        temp ->next->prev=NULL;
+        head = temp -> next;
+    }else{
+        //deleting any middle or ast node
+       
+    node* curr = head;
+    node* prev = NULL;
+    int cnt=1;
+    while (cnt < position)
+    {
+      prev = curr; // yaha hum pahli node jispe current pahle se hai uspe prev ko print karwa rhe hain ye 1st step hai
+      curr = curr -> next;// ye 2nd step hai jisme hum current ko aage badha rhe hain
+      cnt++;
+    }
+  curr -> prev =NULL;
+  prev -> next = curr -> next;
+  curr -> next = NULL;
+  delete curr;
+ 
+    }
 }
 // Main program
 
@@ -107,6 +145,10 @@ insertattail( tail , 20);
 insertatposition(head , tail , 2 , 100); //inserting at a position
 insertatposition(head , tail , 1 , 101);//inserting at head
 insertatposition(head , tail , 9 , 100);//inserting at tail
+
+Deletenode(1 , head);
+Deletenode(4 , head);
+Deletenode(7 , head);
 print(head);
 cout<<"head  "<<head ->data<<endl;
 cout<<"tail  "<<tail ->data<<endl;
