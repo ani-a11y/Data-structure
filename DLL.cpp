@@ -110,6 +110,8 @@ void Deletenode(int position , node* &head){
         node*temp = head;
         temp ->next->prev=NULL;
         head = temp -> next;
+        temp -> next = NULL;
+        delete temp;
     }else{
         //deleting any middle or ast node
        
