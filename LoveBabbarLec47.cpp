@@ -43,25 +43,50 @@ tail -> next = temp;
 tail = tail -> next;
 tail=temp;
 } 
+                   //APPROACH 1
+// bool detectLoop(node* head){
 
-bool detect(node* head){
+//     if(head == NULL)
+//     return false;
+//     map<node* , bool> visited;
+//     node* temp = head;
+//     while(temp != NULL){
+//         //iss loop ka mtlb hai ki cycle present hai 
+//         if(visited[temp] == true) {
+//             cout<<"present on element "<< temp -> data<<endl;
+//         return true;
+//         }
+//         // Agar cycle present nahi hai
+//         visited[temp] = true;
+//         temp = temp -> next;
+//     }
+//     return false;
+// }
 
-    if(head == NULL)
-    return false;
-    map<node* , bool> visited;
-    node* temp = head;
-    while(temp != NULL){
-        //iss loop ka mtlb hai ki cycle present hai 
-        if(visited[temp] != true) {
-            cout<<"present on element "<< temp -> data<<endl;
-        return true;
-        }
-        // Agar cycle present nahi hai
-        visited[temp] = true;
-        temp = temp -> next;
-    }
-    return false;
+
+                         //APPROACH 2
+node* floydDetectLoop(node* head){
+
+    if(head == NULL){
+        retunrn NULL;
 }
+node* slow = head;
+node* fast = head;
+while(slow != NULL && fast != NULL){
+    fast = fast -> next;
+    if(fast != NULL){
+        fast = fast -> next;
+    }
+    slow = slow -> next;
+    if(slow == fast){
+        cout<<"Loop is present at "<< slow ->data <<endl;
+        return slow;
+    }
+}
+return NULL; 
+}
+
+
 void print(node* &head){
   node* temp=head; // Ek temporary pointer hai jisse list traverse hoga
   while(temp!=NULL){ // Jab tak null nahi hota list ke har value ka data print krte jana hai
@@ -93,7 +118,7 @@ tail ->next = head -> next;
 
 
 
-if(detect(head)){
+if(floydDetectLoop(head) != NULL){
     cout<<"cycle is present"<<endl;
 }
 else{
