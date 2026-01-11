@@ -28,7 +28,8 @@ tail -> next = temp;
 tail = tail -> next;
 tail=temp;
 }
-
+             // Approach 1
+     
 bool iscircular(node* head){
     if(head == NULL){
         return NULL;
@@ -44,6 +45,9 @@ bool iscircular(node* head){
         return false;
     }
 }
+          
+ 
+
 
 void print(node* &head){
   node* temp=head; // Ek temporary pointer hai jisse list traverse hoga
