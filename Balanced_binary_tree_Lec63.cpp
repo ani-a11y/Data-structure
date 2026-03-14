@@ -40,7 +40,10 @@
 //   }
 // };   
 
-
+class solution{
+    public:
+    
+}
 // Approach - 2 pair<int int> ka use karenge jisse height aur diameter ek sath call hoga
 #include<iostream>
 #include<algorithm>

@@ -64,9 +64,9 @@ pair<int , int> diameterFast(Node* node){
     pair<int , int> left = diameterFast(node -> left);
     pair<int , int> right = diameterFast(node -> right);
     
-    int op1 = left.first;  // first - diameter
+    int op1 = left.first;  // first -> diameter
     int op2 = right.first; 
-    int op3 = left.second + right.second +1; // second - height
+    int op3 = left.second + right.second +1; // second -> height
     
     pair<int , int> ans;
     ans.first = max(op1 , max(op2 , op3));
@@ -79,3 +79,5 @@ return diameterFast(node).first;
 
 
 };
+
+ 
